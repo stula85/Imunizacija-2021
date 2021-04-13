@@ -1,0 +1,37 @@
+version: "3"
+
+networks:
+  devel:
+
+services:
+  apache-php:
+    build:
+      context: ./apache-php
+      dockerfile: apache-php.dockerfile
+    container_name: apache-php
+    networks:
+      - devel
+    volumes:
+      - ../web:/var/www/html
+    ports:
+      - "7800:80"
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - "7801:3306"
+    volumes:
+      - ../mysql-data:/var/lib/mysql
+      - ../SQL:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_DATABASE: im2021-db
+      MYSQL_USER: im2021-db-user
+      MYSQL_PASSWORD: im2021-db-password
+      MYSQL_ROOT_PASSWORD: im2021-db-root-password
+      SERVICE_TAG: dev
+      SERVICE_NAME: mysql
+    networks:
+      - devel
