@@ -11,28 +11,35 @@ __Pristup backend dijelu__ ukoliko je $config['base_url'] podešen kao na primje
 > __Korisničko ime:__ admin
 > __Lozinka:__ admin
 ## Spisak funkcionalnosti
-Aplikacija "Imunizacija 2021!" se sastoji iz dva dijela i to **Javnog** dijela koji nudi sljedeće funkcionalnosti:
+Aplikacija "Imunizacija 2021!" se sastoji iz dva dijela:
+
+### Javni deo 
+namijenjen građanima za prijavu za vakcinaciju sa sljedećim funkcionalnostima:
 * Prikaz statičnih stranica (Stranica dobrošlice, O projektu, Politika privatnosti);
 * Prikaz forme za iskazivanje interesovanja za imunizaciju protiv virusa COVID-19;
 * Po uspješnom popunjavanju forme (svih obaveznih polja) aplikacija šalje imejl građaninu sa obavještenjem o uspješno iskazanom interesovanju za imunizaciju protiv virusa COVID-19.
-i **privatnog** dijela koji je namijenjen obrađivačima pristiglih prijava, a koji nudi sljedeće mogućnosti:
+
+### Privatni deo 
+namijenjen je obrađivačima pristiglih prijava i nudi sljedeće funkcionalnosti:
+
 * Pregled spiska građana zainteresovanih za imunizaciju protiv virusa COVID-19;
 * Pregled ličnih podataka građana prikupljenih kroz formu u **Javnom** dijelu aplikacije, a koji uključuju:
-* * Podatke o državljanstvu;
-* * JMBG ili Broj pasoša;
-* * Ime;
-* * Prezime;
-* * Imejl adresu;
-* * Broj mobilnog telefona;
-* * Broj fiksnog telefona;
-* * Opštinu/Grad u kojem građanin želi da izvrši proces imunizacije (Spisak opšina i gradova u Republici Srpskoj);
-* * Podatke o specifičnim oboljenjima (ukoliko takva postoje);
-* * Podatke o pokretljivosti pacijenta (da li se građanin može samostalno kretati);
-* * Podatak da li je građanin dobrovoljni davalac krvi.
+    * Podatke o državljanstvu;
+    * JMBG ili Broj pasoša;
+    * Ime;
+    * Prezime;
+    * Imejl adresu;
+    * Broj mobilnog telefona;
+    * Broj fiksnog telefona;
+    * Opštinu/Grad u kojem građanin želi da izvrši proces imunizacije (Spisak opšina i gradova u Republici Srpskoj);
+    * Podatke o specifičnim oboljenjima (ukoliko takva postoje);
+    * Podatke o pokretljivosti pacijenta (da li se građanin može samostalno kretati);
+    * Podatak da li je građanin dobrovoljni davalac krvi.
 * Pregled (filter) prijavljenih građana po opštinama/gradovima;
 * Mogućnost pretrage prijavljenih građana po poljima: ime, prezime, jmbg ili broj pasoša;
 * Mogućnost odabira datuma i vremena imunizacije građana kroz posebnu formu koja po uspješnom zakazivanju termina imunizacije obavještava građanina putem imejl adrese.
 
 __NAPOMENA:__ ovo je trenutni spisak mogućnosti aplikacije. Planirano je da se spisak funkcionalnosti proširuje sa daljnjim razvojem projekta.
+
 ## Licenca
 Aplikacija je objavljena pod GNU-ovom opštom javnom licencom verzija 3.
