@@ -35,3 +35,5 @@ $config['base_url'] = '/';
 `docker-compose build`
 
 `docker-compose up -d`
+
+Aplikacija bi trebala biti dostupna na: `http://127.0.0.1:7800`
