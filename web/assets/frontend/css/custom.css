@@ -1,0 +1,62 @@
+.mt-10 {
+	clear: both;
+	margin-top: 10px;
+}
+.mt-50 {
+	clear: both;
+	margin-top: 50px;
+}
+.mr-10 {
+	clear: both;
+	margin-right: 10px;
+}
+.mb-10 {
+	clear: both;
+	margin-bottom: 10px;
+}
+
+.bijeli-txt {
+	color: #fff !important;
+}
+
+.pull-left {
+	float: left !important;
+}
+
+.ml-10 {
+	margin-left: 10px;
+}
+
+.clear {
+	clear: both !important;
+}
+
+.forma-desno {
+	float: right;
+}
+
+.centar {
+	text-align: center;
+}
+
+a.lbraon {
+	color: #151515 !important;
+}
+
+.nkonkursa {
+	display: block;
+	width: 100%;
+	text-align: center;
+	border: 1px solid #ff0000;
+	margin-bottom: 10px;
+}
+.obavjestenje {
+	display: block;
+	width: 100%;
+	margin-top: 10px;
+}
+.ljepljivo {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 20px;
+}

@@ -1,0 +1,64 @@
+/*YOUR CUSTOM STYLES*/
+img.avatar {
+    border-radius: 10% !important;
+    margin-bottom: 10px;
+}
+.dropzone {
+    background: #fff;
+    border: 2px dashed #ddd;
+    border-radius: 5px;
+}
+
+.dz-message {
+    color: #999;
+}
+
+.dz-message:hover {
+    color: #464646;
+}
+
+.dz-message h3 {
+    font-size: 200%;
+    margin-bottom: 15px;
+}
+.cijena_mt {
+	margin-top: 27px;
+}
+.mt-10 {
+	margin-top: 10px;
+}
+.clear {
+	clear: both;
+}
+.objava_oglasa_naslov {
+    background: #365271;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+.mb-10 {
+    margin-bottom: 10px;
+}
+.mlr-10 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.ta-center {
+    text-align: center;
+}
+.block {
+    display: block;
+    width: 100%;
+}
+.hr5 {
+    border-color: #2C3E50;
+}
+.hr10 {
+    border-color: #18BC9C;
+}
+.hr20 {
+    border-color: #F39C12;
+}
+.payment-success-title {
+    font-size: 30px !important;
