@@ -41,5 +41,9 @@ namijenjen je obrađivačima pristiglih prijava i nudi sljedeće funkcionalnosti
 
 __NAPOMENA:__ ovo je trenutni spisak mogućnosti aplikacije. Planirano je da se spisak funkcionalnosti proširuje sa daljnjim razvojem projekta.
 
+## Opšta diskusija
+Diskusija koja se vodi vezano za ovaj projekat je u potpunosti transparentna i dostupna na Telegram grupi.  
+ Telegram invite link: https://t.me/imunizacija2021dev
+
 ## Licenca
 Aplikacija je objavljena pod GNU-ovom opštom javnom licencom verzija 3.
