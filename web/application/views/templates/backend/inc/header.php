@@ -32,6 +32,12 @@
 				<li class="nav-item">
 					<a class="nav-link" href="<?php echo site_url('pacijenti'); ?>">Пацијенти</a>
 				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Подешавања</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="<?php echo site_url('opstine'); ?>">Општине/Градови</a>
+					</div>
+				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a class="nav-link active" href="<?php echo site_url('panel/odjava/').$this->session->userdata('user_id'); ?>"><i class="fas fa-sign-out-alt"></i> Одјава из система</a></li>

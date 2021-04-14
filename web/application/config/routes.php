@@ -54,6 +54,7 @@ $route['imunizacija'] = 'imunizacija/index';
 $route['prijava'] = 'prijava';
 $route['panel'] = 'panel';
 $route['pacijenti'] = 'pacijenti';
+$route['opstine'] = 'opstine';
 $route['(:any)'] = 'stranice/view/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
