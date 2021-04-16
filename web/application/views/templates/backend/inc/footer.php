@@ -42,5 +42,27 @@
 		}
 	</script>
 <?php endif; ?>
+<?php if($this->router->fetch_class() == "oboljenja" || $this->router->fetch_class() == "oboljenja"): ?>
+	<script type="text/javascript">
+		function obrisiUnos($id) {
+			var txt;
+			var r = confirm("Да ли сте сигурни?");
+			if (r == true) {
+				$.ajax({
+					type: "POST",
+					url: "<?php echo site_url('oboljenja/obrisi/t'); ?>",
+					data: { 'id_oboljenja': $id },
+					dataType: "json",
+					success: function(data) {
+						location.reload();
+					},
+					error: function() {
+						alert('Дошло је до грешке!');
+					}
+				});
+			}
+		}
+	</script>
+<?php endif; ?>
 </body>
 </html>

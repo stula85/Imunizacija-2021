@@ -7,22 +7,21 @@
 		</div>
 	<?php endif; ?>
 	<div class="form-group">
-		<a href="<?php echo base_url('opstine'); ?>" class="btn btn-secondary">Назад</a>
+		<a href="<?php echo base_url('oboljenja'); ?>" class="btn btn-secondary">Назад</a>
 	</div>
 	<ul class="nav nav-tabs">
 		<li class="nav-item">
-			<a class="nav-link active" data-toggle="tab" href="#sadrzaj_pacijent">Измјена уноса</a>
+			<a class="nav-link active" data-toggle="tab" href="#sadrzaj_pacijent">Нови унос</a>
 		</li>
 	</ul>
 	<div id="myTabContent" class="tab-content mt-10">
 		<div class="tab-pane fade show active" id="sadrzaj_pacijent">
-			<?php echo form_open('opstine/edit'); ?>
-			<input type="hidden" name="id_opstine" value="<?php echo $opstina['id_opstine']; ?>">
+			<?php echo form_open('oboljenja/dodaj'); ?>
 			<div class="row">
 				<div class="col-sm-12 col-md-6">
 					<div class="form-group">
-						<label>Назив општине или града:</label>
-						<input name="naziv_opstine" type="text" class="form-control" placeholder="Унесите назив општине или града (*)" value="<?php echo $opstina['naziv_opstine']; ?>" />
+						<label>Назив обољења:</label>
+						<input name="oboljenje" type="text" class="form-control" placeholder="Унесите назив обољења (*)" />
 					</div>
 				</div>
 			</div>
@@ -31,7 +30,7 @@
 					<div class="form-group">
 						<label>Опције:</label>
 						<hr>
-						<input type="submit" class="btn btn-outline-success" value="Сачувај"> <a href="<?php echo site_url('opstine'); ?>" class="btn btn-outline-danger">Одустани</a>
+						<input type="submit" class="btn btn-outline-success" value="Сачувај"> <a href="<?php echo site_url('oboljenja'); ?>" class="btn btn-outline-danger">Одустани</a>
 					</div>
 				</div>
 			</div>

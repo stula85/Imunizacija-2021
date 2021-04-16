@@ -84,7 +84,7 @@
         } else {
             $this->opstine_model->dodaj();
             $this->session->set_flashdata('uspjeh', 'Нови унос је успјешно сачуван.');
-            redirect('opstine','refresh');
+            redirect('opstine');
         }
     }
     public function izmjeni($id_opstine) {
@@ -94,7 +94,7 @@
         }
 
         $data['opstina'] = $this->opstine_model->opstina($id_opstine);
-        $data['title'] = "Форма за унос нове општине или града";
+        $data['title'] = "Форма за измјену података општине или града";
 
         $this->load->view('templates/backend/inc/header');
         $this->load->view('templates/backend/opstine/izmjeni', $data);
@@ -110,7 +110,7 @@
 
         if ($this->form_validation->run() === FALSE) {
             $data['opstina'] = $this->opstine_model->opstina($this->input->post('id_opstine'));
-            $data['title'] = "Форма за унос нове општине или града";
+            $data['title'] = "Форма за измјену података општине или града";
 
             $this->load->view('templates/backend/inc/header');
             $this->load->view('templates/backend/opstine/izmjeni', $data);
@@ -118,7 +118,7 @@
         } else {
             $this->opstine_model->edit();
             $this->session->set_flashdata('uspjeh', 'Унос је успјешно сачуван.');
-            redirect('opstine','refresh');
+            redirect('opstine');
         }
     }
     public function pretraga_opstine(){
