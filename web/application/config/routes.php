@@ -56,6 +56,7 @@ $route['panel'] = 'panel';
 $route['pacijenti'] = 'pacijenti';
 $route['opstine'] = 'opstine';
 $route['oboljenja'] = 'oboljenja';
+$route['korisnici'] = 'korisnici';
 $route['(:any)'] = 'stranice/view/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

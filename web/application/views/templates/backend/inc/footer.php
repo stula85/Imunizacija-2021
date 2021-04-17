@@ -64,5 +64,42 @@
 		}
 	</script>
 <?php endif; ?>
+<?php if($this->router->fetch_class() == "korisnici" || $this->router->fetch_class() == "korisnici"): ?>
+<script type="text/javascript">
+	$('#generisiPwd').on('click', function(){
+		$.ajax({
+			type: "POST",
+			url: "<?php echo site_url('korisnici/generisi_lozinku/t'); ?>",
+			dataType: "json",
+			success: function(data) {
+				$('#lozinka').val();
+				$('#lozinka').val(data);
+				$('#generisanaLozinka').html('<strong>Lozinka:</strong> ' + data);
+			},
+			error: function() {
+				alert('Došlo je do greške');
+			}
+		});
+	});
+	function obrisiUnos($id) {
+			var txt;
+			var r = confirm("Да ли сте сигурни?");
+			if (r == true) {
+				$.ajax({
+					type: "POST",
+					url: "<?php echo site_url('korisnici/obrisi/t'); ?>",
+					data: { 'id_korisnika': $id },
+					dataType: "json",
+					success: function(data) {
+						location.reload();
+					},
+					error: function() {
+						alert('Дошло је до грешке!');
+					}
+				});
+			}
+		}
+</script>
+<?php endif; ?>
 </body>
 </html>

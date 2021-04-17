@@ -37,6 +37,8 @@
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="<?php echo site_url('opstine'); ?>">Општине/Градови</a>
 						<a class="dropdown-item" href="<?php echo site_url('oboljenja'); ?>">Обољења</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="<?php echo site_url('korisnici'); ?>">Корисници</a>
 					</div>
 				</li>
 			</ul>
