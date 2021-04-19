@@ -21,9 +21,9 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th scope="col">Id</th>
+				<th scope="col" width="10">Id</th>
 				<th scope="col">Назив обољења</th>
-				<th scope="col">Опције</th>
+				<th scope="col" class="text-right">Опције</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -31,7 +31,7 @@
 				<tr class="table-default">
 					<td><?php echo $podatak['id_oboljenja']; ?></td>
 					<td><?php echo $podatak['oboljenje']; ?></td>
-					<td width="200"><a href="<?php echo base_url('oboljenja/izmjeni/');?><?php echo $podatak['id_oboljenja']; ?>" class="btn btn-info pull-left" data-toggle="tooltip" data-placement="bottom" title="Измјени"><i class="fas fa-edit"></i></a> <button onclick="obrisiUnos(<?php echo $podatak['id_oboljenja'];?>)" class="btn btn-danger pull-left ml-10"><i class="fas fa-trash"></i></button></td></td>
+					<td width="200" class="text-right"><a href="<?php echo base_url('oboljenja/izmjeni/');?><?php echo $podatak['id_oboljenja']; ?>" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Измјени"><i class="fas fa-edit"></i></a> <button onclick="obrisiUnos(<?php echo $podatak['id_oboljenja'];?>)" class="btn btn-danger ml-10"><i class="fas fa-trash"></i></button></td></td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>

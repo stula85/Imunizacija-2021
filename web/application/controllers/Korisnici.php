@@ -17,49 +17,23 @@
 */
     defined('BASEPATH') OR exit('No direct script access allowed');
 
-    class Korisnici extends CI_Controller {
+    class Korisnici extends MY_Controller {
         public function __construct()
         {
             parent::__construct();
             $this->load->model('korisnik_model');
+            $this->load->config('pagination');
         }
         public function index() {
-            if(!$this->session->userdata('admin_nivo') == "7") {
-                $this->session->set_flashdata('greska', 'Ваше корисничко име нема администраторске привилегије за приступ систему.');
-                redirect('prijava');
-            }
+            $this->pagination->initialize(array(
+                'base_url' => site_url(array('korisnici')),
+                'total_rows' => $this->korisnik_model->count_where('', '')
+            ));
 
-            $config['per_page'] = 10;
-            $config['base_url'] = site_url("korisnici");
-            $config['total_rows'] = $this->korisnik_model->count_where('', '');
-            $config['query_string_segment'] = 'start';
-            $config['full_tag_open'] = '<ul class="pagination justify-content-center">';
-            $config['first_tag_open'] = '<li class="page-item">';
-            $config['first_link'] = "Прва";
-            $config['first_tag_close'] = '</li>';
-            $config['last_tag_open'] = '<li class="page-item">';
-            $config['last_link'] = "Посљедња";
-            $config['last_tag_close'] = '</li>';
-            $config['next_tag_open'] = '<li class="page-item">';
-            $config['next_link'] = 'Сљедећа';
-            $config['next_tag_close'] = '</li>';
-            $config['prev_tag_open'] = '<li class="page-item">';
-            $config['prev_link'] = 'Претходна';
-            $config['prev_tag_close'] = '</li>';
-            $config['cur_tag_open'] = '<li class="page-item"><a class="page-link">';
-            $config['cur_tag_close'] = '</a></li>';
-            $config['num_tag_open'] = '<li class="page-item">';
-            $config['num_tag_close'] = '</li>';
-            $config['full_tag_close'] = '</ul>';
-            $config['page_query_string'] = TRUE;
-            $config['attributes'] = array('class' => 'page-link');
-            $config['num_links'] = 9;
-
-            $this->pagination->initialize($config);
             $start = isset($_GET['start']) ? $_GET['start'] : 0;
             $data['pagination'] = $this->pagination->create_links();
             $fid = NULL;
-            $data['podaci'] = $this->korisnik_model->spisak_korisnika($fid, $start, 10);
+            $data['podaci'] = $this->korisnik_model->spisak_korisnika($fid, $start, $this->config->item('per_page'));
 
             $data['title'] = "Шифрарник корисника";
 
@@ -68,11 +42,6 @@
             $this->load->view('templates/backend/inc/footer');
         }
         public function dodaj() {
-            if(!$this->session->userdata('admin_nivo') == "7") {
-                $this->session->set_flashdata('greska', 'Ваше корисничко име нема администраторске привилегије за приступ систему.');
-                redirect('prijava');
-            }
-
             $this->form_validation->set_rules('ime', 'Име', 'required');
             $this->form_validation->set_rules('prezime', 'Презиме', 'required');
             $this->form_validation->set_rules('korisnicko_ime', 'Корисничко име', 'required');
@@ -93,24 +62,16 @@
             }
         }
         public function izmjeni($id_korisnika) {
-            if(!$this->session->userdata('admin_nivo') == "7") {
-                $this->session->set_flashdata('greska', 'Ваше корисничко име нема администраторске привилегије за приступ систему.');
-                redirect('prijava');
-            }
-
-            $data['title'] = "Форма за измјену података о кориснику";
-            $data['korisnik'] = $this->korisnik_model->korisnik($id_korisnika);
+            $data = array(
+                'title' => "Форма за измјену података о кориснику",
+                'korisnik' => $this->korisnik_model->korisnik($id_korisnika)
+            );
 
             $this->load->view('templates/backend/inc/header');
             $this->load->view('templates/backend/korisnici/izmjeni', $data);
             $this->load->view('templates/backend/inc/footer');
         }
         public function edit() {
-            if(!$this->session->userdata('admin_nivo') == "7") {
-                $this->session->set_flashdata('greska', 'Ваше корисничко име нема администраторске привилегије за приступ систему.');
-                redirect('prijava');
-            }
-
             $this->form_validation->set_rules('ime', 'Име', 'required');
             $this->form_validation->set_rules('prezime', 'Презиме', 'required');
             $this->form_validation->set_rules('korisnicko_ime', 'Корисничко име', 'required');
@@ -132,12 +93,7 @@
             }
         }
         public function pretraga_korisnika() {
-            if(!$this->session->userdata('admin_nivo') == "7") {
-                $this->session->set_flashdata('greska', 'Ваше корисничко име нема администраторске привилегије за приступ систему.');
-                redirect('prijava');
-            }
             $data['podaci'] = $this->korisnik_model->pretraga_korisnika();
-
             $data['title'] = "Резултат претраге:";
 
             $this->load->view('templates/backend/inc/header');
