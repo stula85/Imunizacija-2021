@@ -31,14 +31,14 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th scope="col">Id</th>
+				<th scope="col" width="10">Id</th>
 				<th scope="col">Име и презиме</th>
 				<th scope="col">Држављанство</th>
 				<th scope="col">ЈМБГ/Број пасоша</th>
 				<th scope="col">Специфична обољења?</th>
 				<th scope="col">Пацијент је покретан?</th>
 				<th scope="col">Пацијент је доб. давалац крви?</th>
-				<th scope="col">Опције:</th>
+				<th scope="col" class="text-right">Опције:</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -51,7 +51,7 @@
 					<td><?php echo ($podatak['oboljenja'] == 1) ? "Да" : "Не"; ?></td>
 					<td><?php echo ($podatak['pokretan'] == 1) ? "Да" : "Не"; ?></td>
 					<td><?php echo ($podatak['davalac_krvi'] == 1) ? "Да" : "Не"; ?></td>
-					<td width="200"><a href="<?php echo base_url('pacijenti/pacijent/');?><?php echo $podatak['id_pacijenta']; ?>" class="btn btn-info pull-left" data-toggle="tooltip" data-placement="bottom" title="Детаљи"><i class="fas fa-search-plus"></i></a> <a href="<?php echo base_url('pacijenti/pozovi/');?><?php echo $podatak['id_pacijenta']; ?>" class="btn btn-info pull-left" data-toggle="tooltip" data-placement="bottom" title="Пошаљи позив за вакцинацију"><i class="fas fa-envelope-open-text"></i></a> <button onclick="obrisiPacijenta(<?php echo $podatak['id_pacijenta'];?>)" class="btn btn-danger pull-left ml-10"><i class="fas fa-trash"></i></button></td></td>
+					<td width="200" class="text-right"><a href="<?php echo base_url('pacijenti/pacijent/');?><?php echo $podatak['id_pacijenta']; ?>" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Детаљи"><i class="fas fa-search-plus"></i></a> <a href="<?php echo base_url('pacijenti/pozovi/');?><?php echo $podatak['id_pacijenta']; ?>" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Пошаљи позив за вакцинацију"><i class="fas fa-envelope-open-text"></i></a> <button onclick="obrisiPacijenta(<?php echo $podatak['id_pacijenta'];?>)" class="btn btn-danger ml-10"><i class="fas fa-trash"></i></button></td></td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>

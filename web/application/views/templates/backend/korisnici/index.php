@@ -21,11 +21,11 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th scope="col">Id</th>
+				<th scope="col" width="10">Id</th>
 				<th scope="col">Име и презиме</th>
 				<th scope="col">Корисничко име</th>
 				<th scope="col">Имејл</th>
-				<th scope="col">Опције</th>
+				<th scope="col" class="text-right">Опције</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -35,7 +35,7 @@
 					<td><?php echo $podatak['ime'] . " " . $podatak['prezime']; ?></td>
 					<td><?php echo $podatak['korisnicko_ime']; ?></td>
 					<td><?php echo $podatak['email']; ?></td>
-					<td width="200"><a href="<?php echo base_url('korisnici/izmjeni/');?><?php echo $podatak['id_korisnika']; ?>" class="btn btn-info pull-left" data-toggle="tooltip" data-placement="bottom" title="Измјени"><i class="fas fa-edit"></i></a> <button onclick="obrisiUnos(<?php echo $podatak['id_korisnika'];?>)" class="btn btn-danger pull-left ml-10"><i class="fas fa-trash"></i></button></td></td>
+					<td width="200" class="text-right"><a href="<?php echo base_url('korisnici/izmjeni/');?><?php echo $podatak['id_korisnika']; ?>" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Измјени"><i class="fas fa-edit"></i></a> <button onclick="obrisiUnos(<?php echo $podatak['id_korisnika'];?>)" class="btn btn-danger ml-10"><i class="fas fa-trash"></i></button></td></td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
