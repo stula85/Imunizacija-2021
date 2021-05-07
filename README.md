@@ -32,12 +32,23 @@ namijenjen je obrađivačima pristiglih prijava i nudi sljedeće funkcionalnosti
     * Broj mobilnog telefona;
     * Broj fiksnog telefona;
     * Opštinu/Grad u kojem građanin želi da izvrši proces imunizacije (Spisak opšina i gradova u Republici Srpskoj);
+    * Proizvođača vakcine za koju je građanin iskazao interesovanje;
     * Podatke o specifičnim oboljenjima (ukoliko takva postoje);
     * Podatke o pokretljivosti pacijenta (da li se građanin može samostalno kretati);
     * Podatak da li je građanin dobrovoljni davalac krvi.
 * Pregled (filter) prijavljenih građana po opštinama/gradovima;
 * Mogućnost pretrage prijavljenih građana po poljima: ime, prezime, jmbg ili broj pasoša;
-* Mogućnost odabira datuma i vremena imunizacije građana kroz posebnu formu koja po uspješnom zakazivanju termina imunizacije obavještava građanina putem imejl adrese.
+* Mogućnost odabira datuma i vremena imunizacije građana kroz posebnu formu (vakcinacija ili revakcinacija) koja po uspješnom zakazivanju termina imunizacije obavještava građanina putem imejl adrese;
+* Pregled spiska pacijenata kojima je zakazana imunizacija;
+* Mogućnost pretraživanja spiska zakazanih pacijenata;
+* Pregled pacijentovog kartona sa detaljima o zakazanom terminu imunizacije;
+* Mogućnost sprovođenja imunizacije kroz posebnu formu koja omogućava odabir proizvođača vakcine i unos serije vakcine koju pacijnt prima. Osim ovih podataka sistem automatski unosi datum i vrijeme imunizacije i ovim podacima nije moguće manipulisati;
+* Po uspješno popunjenoj formi aplikacija generiše Potvrdu o uspješno sprovedenoj imunizaciji pacijenta u PDF formatu sa QR code-om;
+* Sastavni dio aplikacije čine sljedeći Šifrarnici:
+   * Opštine/Gradovi, kroz ovaj modul moguće je uređivati spiskove opština i gradova;
+   * Vakcine, kroz ovaj modul moguće je uređivati spiskove vakcina koje građani mogu birati kroz formu za iskazivanje iteresovanja za proces imunizacije;
+   * Oboljenja, modul sa spiskom specifičnih oboljenja;
+   * Korisnici, modul za uređivanje korisnika i korisničkih privilegija za pristup aplikaciji.
 
 __NAPOMENA:__ ovo je trenutni spisak mogućnosti aplikacije. Planirano je da se spisak funkcionalnosti proširuje sa daljnjim razvojem projekta.
 
