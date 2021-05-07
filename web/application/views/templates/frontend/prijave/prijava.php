@@ -48,6 +48,15 @@
 				</select>
 			</div>
 			<div class="form-group">
+				<label for="id_vakcine"><?php echo translateText("Исказујем интересовање да примим вакцину произвођача (*)"); ?></label>
+				<select style="border: 1px solid #ff0000;" class="form-control" id="vakcina" name="id_vakcine">
+					<option value="-1">Одаберите произвођача...</option>
+					<?php foreach($vakcine as $vakcina) : ?>
+						<option value="<?php echo $vakcina['id_vakcine']; ?>"><?php echo translateText($vakcina['naziv_vakcine']); ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+			<div class="form-group">
 				<legend><?php echo translateText("Да ли имате неко од специфичних обољења?"); ?></legend>
 				<div class="custom-control custom-radio">
 					<input type="radio" id="oboljenja_ne" name="oboljenja" class="custom-control-input" checked="" value="0">

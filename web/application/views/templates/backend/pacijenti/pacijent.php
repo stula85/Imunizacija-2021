@@ -74,6 +74,10 @@
 						<label>Инфо:</label>
 						<ul class="list-group">
 							<li class="list-group-item d-flex justify-content-between align-items-center">
+								Вакцина:
+								<span class="badge badge-primary badge-pill"><?php echo $podaci['naziv_vakcine']; ?></span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-center">
 								Специфична обољења?
 								<span class="badge badge-primary badge-pill"><?php echo ($podaci['oboljenja'] == 1) ? "Да" : "Не"; ?></span>
 							</li>

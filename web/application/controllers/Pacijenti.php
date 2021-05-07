@@ -64,6 +64,7 @@
         $data['podaci'] = $this->pacijent_model->pacijent($id_pacijenta);
         $data['oboljenja'] = $this->pacijent_model->spisak_oboljenja($id_pacijenta);
         $data['termini_vakcinacije'] = $this->pacijent_model->termini_vakcinacije($id_pacijenta);
+        
         $this->load->view('templates/backend/inc/header');
         $this->load->view('templates/backend/pacijenti/pacijent', $data);
         $this->load->view('templates/backend/inc/footer');
@@ -77,6 +78,7 @@
     }
     public function zakazi_termin() {
         $this->form_validation->set_rules('datum_vrijeme', 'Датум и вријеме', 'required');
+        $this->form_validation->set_rules('tip', 'Тип услуге', 'required|greater_than[0]');
 
         if ($this->form_validation->run() === FALSE) {
             $data['title'] = "Форма за заказивање термина имунизације:";
@@ -89,7 +91,7 @@
             $this->pacijent_model->zakazivanje();
             $this->posalji_obavjestenje($id_pacijenta);
             $this->session->set_flashdata('uspjeh', 'Термин имунизације је успјешно заказан. Обавјештење је послано пацијенту на имејл.');
-            redirect('pacijenti','refresh');
+            redirect('pacijenti');
         }
     }
 

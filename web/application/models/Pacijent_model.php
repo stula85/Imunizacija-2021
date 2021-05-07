@@ -29,6 +29,7 @@
     	}
     	public function pacijent($id_pacijenta) {
     		$this->db->join('opstine', 'opstine.id_opstine = pacijenti.id_opstine', 'left');
+            $this->db->join('vakcine', 'vakcine.id_vakcine = pacijenti.id_vakcine', 'left');
     		$this->db->where('id_pacijenta', $id_pacijenta);
     		$q = $this->db->get('pacijenti');
     		return $q->row_array();
@@ -59,9 +60,14 @@
             return $q->result_array();
         }
         public function zakazivanje() {
+            if($this->input->post('tip') == 1)
+                $tip_usluge = 'V';
+            if($this->input->post('tip') == 2)
+                $tip_usluge = 'R';
             $data = array(
                 'id_pacijenta' => $this->input->post('id_pacijenta'),
-                'datum_vrijeme' => $this->input->post('datum_vrijeme')
+                'datum_vrijeme' => $this->input->post('datum_vrijeme'),
+                'tip' => $tip_usluge
             );
             return $this->db->insert('zakazani_termini_vakcinacije', $data);
         }

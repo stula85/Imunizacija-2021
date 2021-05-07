@@ -35,6 +35,7 @@ class Imunizacija_model extends CI_Model {
 			'brmob' => $this->input->post('brmob'),
 			'brfiks' => $this->input->post('brfiks'),
 			'id_opstine' => $this->input->post('id_opstine'),
+			'id_vakcine' => $this->input->post('id_vakcine'),
 			'oboljenja' => $this->input->post('oboljenja'),
 			'pokretan' => $this->input->post('pokretan'),
 			'davalac_krvi' => $this->input->post('davalac_krvi')

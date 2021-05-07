@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               5.7.32-log - MySQL Community Server (GPL)
+-- Server version:               5.7.27-log - MySQL Community Server (GPL)
 -- Server OS:                    Win64
 -- HeidiSQL Version:             11.2.0.6213
 -- --------------------------------------------------------
@@ -11,6 +11,24 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+-- Dumping structure for table vakcinacija.imunizacija
+CREATE TABLE IF NOT EXISTS `imunizacija` (
+  `id_termina` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pacijenta` int(11) NOT NULL,
+  `id_vakcine` varchar(100) NOT NULL DEFAULT '',
+  `datum_vrijeme_prve_doze` datetime NOT NULL,
+  `datum_vrijeme_druge_doze` datetime NOT NULL,
+  `serija_prve_doze` varchar(100) NOT NULL DEFAULT '',
+  `serija_druge_doze` varchar(100) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id_termina`),
+  KEY `FK_Imunizacija_Pacijenti` (`id_pacijenta`),
+  CONSTRAINT `FK_Imunizacija_Pacijenti` FOREIGN KEY (`id_pacijenta`) REFERENCES `pacijenti` (`id_pacijenta`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table vakcinacija.imunizacija: ~0 rows (approximately)
+/*!40000 ALTER TABLE `imunizacija` DISABLE KEYS */;
+/*!40000 ALTER TABLE `imunizacija` ENABLE KEYS */;
 
 -- Dumping structure for table vakcinacija.korisnici
 CREATE TABLE IF NOT EXISTS `korisnici` (
@@ -29,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `korisnici` (
   PRIMARY KEY (`id_korisnika`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table vakcinacija.korisnici: ~0 rows (approximately)
+-- Dumping data for table vakcinacija.korisnici: ~3 rows (approximately)
 /*!40000 ALTER TABLE `korisnici` DISABLE KEYS */;
 INSERT INTO `korisnici` (`id_korisnika`, `ime`, `prezime`, `adresa`, `grad`, `broj_telefona`, `email`, `korisnicko_ime`, `lozinka`, `aktivan`, `admin_nivo`, `super_user`) VALUES
 	(1, 'Administrator', NULL, NULL, NULL, NULL, NULL, 'admin', '21232f297a57a5a743894a0e4a801fc323a6ef2a7db51e562bd82a473183d4c2', 1, 7, 'D');
@@ -62,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `opstine` (
   `id_opstine` int(11) NOT NULL AUTO_INCREMENT,
   `naziv_opstine` varchar(255) NOT NULL,
   PRIMARY KEY (`id_opstine`)
-) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table vakcinacija.opstine: ~64 rows (approximately)
 /*!40000 ALTER TABLE `opstine` DISABLE KEYS */;
@@ -158,6 +176,7 @@ CREATE TABLE IF NOT EXISTS `pacijenti` (
   `brmob` varchar(50) NOT NULL,
   `brfiks` varchar(50) DEFAULT NULL,
   `id_opstine` int(11) NOT NULL,
+  `id_vakcine` int(11) NOT NULL,
   `oboljenja` tinyint(1) NOT NULL COMMENT '1 - Da, 0 - Ne',
   `pokretan` tinyint(1) NOT NULL COMMENT '1 - Da, 0 - Ne',
   `davalac_krvi` tinyint(1) NOT NULL COMMENT '1 - Da, 0 - Ne',
@@ -166,9 +185,23 @@ CREATE TABLE IF NOT EXISTS `pacijenti` (
   CONSTRAINT `FK_Pacijenti_Opstine` FOREIGN KEY (`id_opstine`) REFERENCES `opstine` (`id_opstine`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table vakcinacija.pacijenti: ~8 rows (approximately)
+-- Dumping data for table vakcinacija.pacijenti: ~4 rows (approximately)
 /*!40000 ALTER TABLE `pacijenti` DISABLE KEYS */;
 /*!40000 ALTER TABLE `pacijenti` ENABLE KEYS */;
+
+-- Dumping structure for table vakcinacija.vakcine
+CREATE TABLE IF NOT EXISTS `vakcine` (
+  `id_vakcine` int(11) NOT NULL AUTO_INCREMENT,
+  `naziv_vakcine` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_vakcine`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table vakcinacija.vakcine: ~2 rows (approximately)
+/*!40000 ALTER TABLE `vakcine` DISABLE KEYS */;
+INSERT INTO `vakcine` (`id_vakcine`, `naziv_vakcine`) VALUES
+	(1, 'Pfizer-BioNTech COVID-19 Vaccine'),
+	(2, 'Gamaleya: Sputnik V – COVID19 Vaccine');
+/*!40000 ALTER TABLE `vakcine` ENABLE KEYS */;
 
 -- Dumping structure for table vakcinacija.zakazani_termini_vakcinacije
 CREATE TABLE IF NOT EXISTS `zakazani_termini_vakcinacije` (
@@ -176,6 +209,7 @@ CREATE TABLE IF NOT EXISTS `zakazani_termini_vakcinacije` (
   `id_pacijenta` int(11) NOT NULL,
   `datum_vrijeme` datetime NOT NULL,
   `tip` enum('V','R') NOT NULL DEFAULT 'V' COMMENT 'V = Vakcinacija; R = Revakcinacija',
+  `status` enum('OK','NE') DEFAULT 'NE' COMMENT 'OK = Vakcinacija obavljena; ''NE'' = Vakcinacija nije obavljena',
   PRIMARY KEY (`id_termina`),
   KEY `FK_Zakazani_Termini_Vakcinacije_Pacijenti` (`id_pacijenta`),
   CONSTRAINT `FK_Zakazani_Termini_Vakcinacije_Pacijenti` FOREIGN KEY (`id_pacijenta`) REFERENCES `pacijenti` (`id_pacijenta`) ON UPDATE CASCADE

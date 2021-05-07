@@ -42,6 +42,28 @@
 		}
 	</script>
 <?php endif; ?>
+<?php if($this->router->fetch_class() == "vakcine" || $this->router->fetch_class() == "vakcine"): ?>
+	<script type="text/javascript">
+		function obrisiUnos($id) {
+			var txt;
+			var r = confirm("Да ли сте сигурни?");
+			if (r == true) {
+				$.ajax({
+					type: "POST",
+					url: "<?php echo site_url('vakcine/obrisi/t'); ?>",
+					data: { 'id_vakcine': $id },
+					dataType: "json",
+					success: function(data) {
+						location.reload();
+					},
+					error: function() {
+						alert('Дошло је до грешке!');
+					}
+				});
+			}
+		}
+	</script>
+<?php endif; ?>
 <?php if($this->router->fetch_class() == "oboljenja" || $this->router->fetch_class() == "oboljenja"): ?>
 	<script type="text/javascript">
 		function obrisiUnos($id) {

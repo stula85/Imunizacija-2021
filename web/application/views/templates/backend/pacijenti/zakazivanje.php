@@ -1,5 +1,11 @@
 <h1><?php echo $title; ?></h1>
 <div class="col-sm-12 mt-10">
+	<?php if(validation_errors()) : ?>
+		<div class="alert alert-dismissible alert-danger">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>Грешка!</strong> <?php echo validation_errors(); ?>
+		</div>
+	<?php endif; ?>
 	<div class="form-group">
 		<a href="<?php echo base_url('pacijenti'); ?>" class="btn btn-secondary">Назад</a>
 	</div>
@@ -32,6 +38,11 @@
 						<label>Унесите датум и вријеме<span style="color: #ff0000;">(*)</span>:</label>
 						<input type="text" name="datum_vrijeme" class="form-control" value="" id="datetimepicker"/>
 					</div>
+					<select style="border: 1px solid #ff0000;" name="tip" class="form-control" id="exampleSelect1">
+						<option value="-1">Одаберите тип услуге...</option>
+							<option value="1">Вакцинација</option>
+							<option value="2">Ревакцинација</option>
+					</select>
 				</div>
 				<div class="col-sm-12 col-md-4">
 					<div class="form-group">

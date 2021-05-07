@@ -24,6 +24,7 @@ class Imunizacija extends CI_Controller {
 		$this->load->model('imunizacija_model');
 		$this->load->model('pacijent_model');
 		$this->load->model('opstine_model');
+		$this->load->model('vakcina_model');
 	}
 
 	public function index()
@@ -41,6 +42,7 @@ class Imunizacija extends CI_Controller {
 		$this->form_validation->set_rules('imejl', 'Адреса електронске поште', 'required');
 		$this->form_validation->set_rules('brmob', 'Број мобилног телефона', 'required');
 		$this->form_validation->set_rules('id_opstine', 'Одаберите локацију на којој желите да примите вакцину', 'required');
+		$this->form_validation->set_rules('id_vakcine', 'Одаберите произвођача вакцине', 'required|greater_than[0]');
 		$this->form_validation->set_rules('oboljenja', 'Да ли имате неко од специфичних обољења?', 'required');
 		$this->form_validation->set_rules('pokretan', 'Да ли због здравствених проблема не можете да излазите из куће/стана?', 'required');
 		$this->form_validation->set_rules('davalac_krvi', 'Да ли сте добровољни давалац крви?', 'required');
@@ -48,6 +50,7 @@ class Imunizacija extends CI_Controller {
 		if ($this->form_validation->run() === FALSE) {
 			$data['opstine'] = $this->opstine_model->opstine();
 			$data['oboljenja'] = $this->imunizacija_model->oboljenja();
+			$data['vakcine'] = $this->vakcina_model->vakcine();
 
 			$this->load->view('templates/frontend/inc/header');
 			$this->load->view('templates/frontend/prijave/prijava', $data);

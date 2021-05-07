@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 $config = array(
-	'per_page' => 5,
+	'per_page' => 10,
     'base_url' => site_url(),
     'total_rows' => 0,
     'query_string_segment' => 'start',
